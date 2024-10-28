@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
+
+const userContent: string = 'lengua404'
+const passwordContent: string = 'I54IL4ME'
 ---
 
 <Layout>
@@ -16,4 +19,44 @@ import Layout from '../layouts/Layout.astro'
     A lo largo de esta presentación, recorreremos capturas clave de la web,
     desde su diseño de interfaz y otros esenciales en el desarrollo web.
   </p>
+  <a
+    class='text-blue-600 hover:text-blue-800 transition-colors duration-200 underline underline-offset-4'
+    href='http://www.lenguajedemarcas.com.mialias.net/'>Acceder a LdM</a
+  >
+
+  <div class='text-gray-700 flex flex-col gap-2 mt-4'>
+    <div class='flex items-center'>
+      <span class='font-semibold mr-1'>Usuario:</span>
+      <span id='user'>{'•'.repeat(userContent.length)}</span>
+      <button
+        class='ml-2 bg-blue-600 text-white text-sm px-2 py-1 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 transition duration-200'
+        user-button>Copiar usuario</button
+      >
+    </div>
+
+    <div class='flex items-center'>
+      <span class='font-semibold mr-1'>Contraseña:</span>
+      <span id='pass'>{'•'.repeat(passwordContent.length)}</span>
+      <button
+        class='ml-2 bg-blue-600 text-white text-sm px-2 py-1 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 transition duration-200'
+        password-button>Copiar contraseña</button
+      >
+    </div>
+  </div>
+
+  <script>
+    const userButtons = document.querySelectorAll('[user-button]')
+    userButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        navigator.clipboard.writeText('lengua404')
+      })
+    })
+
+    const passButtons = document.querySelectorAll('[password-button]')
+    passButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        navigator.clipboard.writeText('I54IL4ME')
+      })
+    })
+  </script>
 </Layout>
